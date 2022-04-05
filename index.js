@@ -18,16 +18,20 @@ app.get('/', (req, res) => {
 const tech = io.of('/tech');
 
 tech.on('connection', (socket) => {
+
+    // Event when Someone join a room.
     socket.on('join', (data) => {
         socket.join(data.room);
         tech.in(data.room).emit('message', `New user joined ${data.room} room!`);
     })
 
+    // Event when someone send a message in tech room.
     socket.on('message', (data) => {
         console.log(`message: ${data.msg}`);
         tech.in(data.room).emit('message', data.msg);
     });
 
+    // Event when someone disconnect from the tech room.
     socket.on('disconnect', () => {
         console.log('user disconnected');
 
