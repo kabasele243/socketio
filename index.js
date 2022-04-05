@@ -10,11 +10,19 @@ server.listen(port, () => {
 
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
-})
+    res.sendFile(__dirname + '/public/index.html');
+});
 
 app.get('/javascript', (req, res) => {
     res.sendFile(__dirname + '/public/javascript.html');
+});
+
+app.get('/swift', (req, res) => {
+    res.sendFile(__dirname + '/public/swift.html');
+});
+
+app.get('/css', (req, res) => {
+    res.sendFile(__dirname + '/public/css.html');
 });
 
 
