@@ -13,6 +13,11 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 })
 
+app.get('/javascript', (req, res) => {
+    res.sendFile(__dirname + '/public/javascript.html');
+});
+
+
 // namescpaces
 // tech namespace
 const tech = io.of('/tech');
